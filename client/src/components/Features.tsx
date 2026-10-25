@@ -1,7 +1,7 @@
 /*
  * Features — Cygnus AI Labs
- * Design: Dark premium — asymmetric bento grid, gradient-border cards,
- * scroll-triggered stagger. Capabilities tailored to AI research & automation.
+ * Theme: Light precision — Section background #F4F8FC, white cards #FFFFFF,
+ * deep navy text #071426, muted blue-gray #526174, and logo accents.
  */
 import { motion } from "framer-motion";
 import { Brain, Network, BarChart3, Shield, Cpu, GitMerge } from "lucide-react";
@@ -9,20 +9,20 @@ import { useScrollReveal, staggerContainer, staggerItem } from "@/hooks/useScrol
 
 const smallFeatures = [
   {
-    icon: <Brain className="w-5 h-5 text-sky-400" />,
-    iconBg: "bg-sky-500/10 border-sky-500/20",
+    icon: <Brain className="w-5 h-5 text-[#075BC7]" />,
+    iconBg: "bg-[#075BC7]/10 border-[#075BC7]/25",
     title: "AI Model Development",
     desc: "We design, train, and fine-tune language and predictive models customised to your domain — not repurposed off-the-shelf tools.",
   },
   {
-    icon: <Shield className="w-5 h-5 text-teal-400" />,
-    iconBg: "bg-teal-500/10 border-teal-500/20",
+    icon: <Shield className="w-5 h-5 text-[#00A596]" />,
+    iconBg: "bg-[#00A596]/10 border-[#00A596]/25",
     title: "Responsible AI Practices",
     desc: "Every system we build is auditable, explainable, and aligned with data-governance standards your stakeholders can trust.",
   },
   {
-    icon: <GitMerge className="w-5 h-5 text-blue-400" />,
-    iconBg: "bg-blue-500/10 border-blue-500/20",
+    icon: <GitMerge className="w-5 h-5 text-[#FF9820]" />,
+    iconBg: "bg-[#FF9820]/10 border-[#FF9820]/25",
     title: "Seamless Integration",
     desc: "Our solutions slot into your existing stack — ERP, CRM, cloud, or on-prem — with minimal disruption and clear handover documentation.",
   },
@@ -32,13 +32,8 @@ export default function Features() {
   const { ref, inView } = useScrollReveal(0.08);
 
   return (
-    <section id="features" className="relative py-36 overflow-hidden" ref={ref}>
-      {/* Left glow */}
-      <div
-        className="glow-orb w-[500px] h-[500px] -left-48 top-1/2 -translate-y-1/2 opacity-[0.07]"
-        style={{ background: "radial-gradient(ellipse, #0E60C4, transparent)" }}
-        aria-hidden="true"
-      />
+    <section id="features" className="relative py-32 overflow-hidden bg-[#F4F8FC]" ref={ref}>
+      <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="container relative z-10">
         {/* Section header */}
@@ -55,65 +50,65 @@ export default function Features() {
           </motion.div>
           <motion.h2
             variants={staggerItem}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#071426] mb-5 tracking-tight"
             style={{ fontFamily: "'Outfit', sans-serif" }}
           >
             Intelligence applied to{" "}
             <br className="hidden md:block" />
             <span className="gradient-text">real business problems</span>
           </motion.h2>
-          <motion.p variants={staggerItem} className="text-white/65 text-lg max-w-2xl mx-auto leading-relaxed">
+          <motion.p variants={staggerItem} className="text-[#526174] text-lg max-w-2xl mx-auto leading-relaxed">
             We combine rigorous AI research with pragmatic engineering to build systems that bring measurable order to your most complex operations.
           </motion.p>
         </motion.div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
           {/* Large card — Process Intelligence (spans 2 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="lg:col-span-2 gradient-border rounded-2xl overflow-hidden card-hover"
+            className="lg:col-span-2 rounded-2xl overflow-hidden card-hover"
           >
-            <div className="p-7">
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-10 h-10 rounded-xl border flex items-center justify-center flex-shrink-0 bg-sky-500/10 border-sky-500/20">
-                  <BarChart3 className="w-5 h-5 text-sky-400" />
+            <div className="p-8">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 bg-[#075BC7]/10 border-[#075BC7]/25">
+                  <BarChart3 className="w-5 h-5 text-[#075BC7]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-lg mb-1" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  <h3 className="text-[#071426] font-bold text-xl mb-1.5" style={{ fontFamily: "'Outfit', sans-serif" }}>
                     Process Intelligence &amp; Analytics
                   </h3>
-                  <p className="text-white/65 text-sm leading-relaxed">
+                  <p className="text-[#526174] text-sm leading-relaxed">
                     We map your current workflows, identify inefficiencies, and deploy AI-driven analytics that surface actionable insight — from executive dashboards to operational alerts.
                   </p>
                 </div>
               </div>
-              {/* Visual — abstract process flow representation */}
-              <div className="relative rounded-xl overflow-hidden border border-white/[0.06] bg-white/[0.02] p-6">
+              {/* Process visualization */}
+              <div className="rounded-xl border border-[#DCE5EF] bg-[#F4F8FC] p-6">
                 <div className="flex items-center gap-3 flex-wrap">
                   {["Raw Data", "Ingestion", "AI Processing", "Structured Insight", "Action"].map((label, i, arr) => (
                     <div key={label} className="flex items-center gap-3">
-                      <div className="px-3 py-1.5 rounded-lg text-xs font-medium text-sky-300/80 border border-sky-500/20 bg-sky-500/08 whitespace-nowrap">
+                      <div className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[#075BC7] border border-[#DCE5EF] bg-white shadow-2xs whitespace-nowrap">
                         {label}
                       </div>
                       {i < arr.length - 1 && (
-                        <div className="h-px w-4 bg-gradient-to-r from-sky-500/40 to-teal-500/40 flex-shrink-0" />
+                        <div className="h-0.5 w-4 bg-[#078ED8]/40 flex-shrink-0" />
                       )}
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 grid grid-cols-3 gap-2">
+                <div className="mt-5 grid grid-cols-3 gap-3">
                   {[
                     { label: "Accuracy", value: "94%" },
                     { label: "Time Saved", value: "60%" },
                     { label: "Error Rate", value: "↓ 82%" },
                   ].map((m) => (
-                    <div key={m.label} className="text-center py-2 rounded-lg bg-white/[0.03] border border-white/[0.05]">
-                      <div className="text-sky-300 font-bold text-lg" style={{ fontFamily: "'Outfit', sans-serif" }}>{m.value}</div>
-                      <div className="text-white/40 text-xs mt-0.5">{m.label}</div>
+                    <div key={m.label} className="text-center py-3 rounded-lg bg-white border border-[#DCE5EF] shadow-2xs">
+                      <div className="text-[#075BC7] font-bold text-xl" style={{ fontFamily: "'Outfit', sans-serif" }}>{m.value}</div>
+                      <div className="text-[#526174] text-xs mt-0.5 font-medium">{m.label}</div>
                     </div>
                   ))}
                 </div>
@@ -126,35 +121,32 @@ export default function Features() {
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.18 }}
-            className="gradient-border rounded-2xl overflow-hidden card-hover flex flex-col"
+            className="rounded-2xl overflow-hidden card-hover flex flex-col"
           >
-            <div className="p-7 flex flex-col flex-1">
-              <div className="flex items-start gap-4 mb-5">
-                <div className="w-10 h-10 rounded-xl border flex items-center justify-center flex-shrink-0 bg-teal-500/10 border-teal-500/20">
-                  <Cpu className="w-5 h-5 text-teal-400" />
+            <div className="p-8 flex flex-col flex-1">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 bg-[#00A596]/10 border-[#00A596]/25">
+                  <Cpu className="w-5 h-5 text-[#00A596]" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-lg mb-1" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                  <h3 className="text-[#071426] font-bold text-xl mb-1.5" style={{ fontFamily: "'Outfit', sans-serif" }}>
                     Intelligent Automation
                   </h3>
-                  <p className="text-white/65 text-sm leading-relaxed">
+                  <p className="text-[#526174] text-sm leading-relaxed">
                     From document processing to multi-step decision pipelines — we automate the repetitive and the complex, freeing your team for higher-value work.
                   </p>
                 </div>
               </div>
-              <div className="flex-1 relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 flex flex-col gap-3">
+              <div className="flex-1 rounded-xl border border-[#DCE5EF] bg-[#F4F8FC] p-5 flex flex-col justify-center gap-3">
                 {[
-                  { step: "Document arrives", status: "auto" },
-                  { step: "AI extracts & classifies", status: "ai" },
-                  { step: "Validation & routing", status: "auto" },
-                  { step: "Workflow triggered", status: "done" },
+                  { step: "Document arrives", status: "auto", dotColor: "bg-[#075BC7]" },
+                  { step: "AI extracts & classifies", status: "ai", dotColor: "bg-[#078ED8]" },
+                  { step: "Validation & routing", status: "auto", dotColor: "bg-[#00A596]" },
+                  { step: "Workflow triggered", status: "done", dotColor: "bg-[#FF9820]" },
                 ].map((item) => (
-                  <div key={item.step} className="flex items-center gap-3">
-                    <div className={`w-2 h-2 rounded-full flex-shrink-0 ${
-                      item.status === "done" ? "bg-teal-400" :
-                      item.status === "ai" ? "bg-sky-400" : "bg-white/20"
-                    }`} />
-                    <span className="text-white/60 text-xs">{item.step}</span>
+                  <div key={item.step} className="flex items-center gap-3 bg-white px-3.5 py-2.5 rounded-lg border border-[#DCE5EF] shadow-2xs">
+                    <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${item.dotColor}`} />
+                    <span className="text-[#071426] text-xs font-medium">{item.step}</span>
                   </div>
                 ))}
               </div>
@@ -168,18 +160,18 @@ export default function Features() {
               initial={{ opacity: 0, y: 36 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.26 + i * 0.08 }}
-              className="gradient-border rounded-2xl p-7 card-hover group"
+              className="rounded-2xl p-8 card-hover"
             >
-              <div className={`w-10 h-10 rounded-xl border flex items-center justify-center mb-5 transition-colors duration-300 ${feat.iconBg}`}>
+              <div className={`w-11 h-11 rounded-xl border flex items-center justify-center mb-5 transition-colors duration-300 ${feat.iconBg}`}>
                 {feat.icon}
               </div>
               <h3
-                className="text-white font-semibold text-base mb-2.5"
+                className="text-[#071426] font-bold text-lg mb-2.5"
                 style={{ fontFamily: "'Outfit', sans-serif" }}
               >
                 {feat.title}
               </h3>
-              <p className="text-white/65 text-sm leading-relaxed">{feat.desc}</p>
+              <p className="text-[#526174] text-sm leading-relaxed">{feat.desc}</p>
             </motion.div>
           ))}
 
@@ -188,17 +180,17 @@ export default function Features() {
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.5 }}
-            className="lg:col-span-3 gradient-border rounded-2xl p-7 card-hover"
+            className="lg:col-span-3 rounded-2xl p-8 card-hover"
           >
-            <div className="flex items-start gap-4 mb-2">
-              <div className="w-10 h-10 rounded-xl border flex items-center justify-center flex-shrink-0 bg-blue-500/10 border-blue-500/20">
-                <Network className="w-5 h-5 text-blue-400" />
+            <div className="flex items-start gap-4">
+              <div className="w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 bg-[#075BC7]/10 border-[#075BC7]/25">
+                <Network className="w-5 h-5 text-[#075BC7]" />
               </div>
               <div>
-                <h3 className="text-white font-semibold text-lg mb-1" style={{ fontFamily: "'Outfit', sans-serif" }}>
+                <h3 className="text-[#071426] font-bold text-xl mb-1.5" style={{ fontFamily: "'Outfit', sans-serif" }}>
                   End-to-End R&amp;D Partnership
                 </h3>
-                <p className="text-white/65 text-sm leading-relaxed max-w-3xl">
+                <p className="text-[#526174] text-sm leading-relaxed max-w-3xl">
                   We work with you from problem definition through deployment and ongoing optimisation — research, prototype, validate, scale. No hand-off gaps, no black-box deliverables.
                 </p>
               </div>

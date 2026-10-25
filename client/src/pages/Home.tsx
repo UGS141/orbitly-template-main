@@ -1,6 +1,6 @@
 /*
  * Home — Cygnus AI Labs Landing Page
- * Design: Dark tech-premium — full single-page layout assembling all sections
+ * Theme: Light Precision — white background with restrained logo-inspired accents
  */
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -13,8 +13,8 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div
-      className="min-h-screen"
-      style={{ backgroundColor: "#030305", color: "#FAFAFA" }}
+      className="min-h-screen bg-white text-[#071426]"
+      style={{ backgroundColor: "#FFFFFF", color: "#071426" }}
     >
       <Navbar />
       <main>
